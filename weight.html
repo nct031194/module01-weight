@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính chỉ số cơ thể</title>
+</head>
+<body>
+    <h1>BẢNG TÍNH CHỈ SỐ CÂN NẶNG</h1>
+    <label for="kg">Nhập cân nặng: (kg) </label>  <input type="number" onclick="getKg()" name="cannang" id="kg" size="15" ><br><br>
+    <label for="cm">Nhập chiều cao: (cm)</label>  <input type="number" onclick="getCm()" name="chieucao" id="cm" size="15">
+    <button type="button"  onclick="kiemtra()">Kiểm tra</button><br><br>
+
+        <p id="result"></p>
+    <script>
+    function getKg(){
+        let sokg = +prompt('Nhap vao so can nang');     
+        document.getElementById('kg').value = sokg
+    }
+    function getCm(){
+        let soCm = +prompt('Nhap vao so chieu cao (cm)');     
+        document.getElementById('cm').value = soCm   
+    }
+    function kiemtra(){
+        let valueKg = document.getElementById('kg').value
+        let valueCm = document.getElementById('cm').value
+
+        let bmi = valueKg /  (valueCm * valueCm)
+        console.log(bmi)
+            if ( bmi < 18.5) {
+        document.getElementById('result').innerHTML=" bad"
+    }
+        else if ( 18.5 <= bmi < 25 ){
+            document.getElementById('result').innerHTML="normal"
+        }
+        else if ( 25 <= bmi < 30){
+            document.getElementById('result').innerHTML="over"
+        }
+        else{
+        document.getElementById('result').innerHTML="extra"
+
+    }
+    }
+    </script>
+</body>
+</html>
